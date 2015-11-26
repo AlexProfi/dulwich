@@ -444,7 +444,7 @@ class BaseRepo(object):
         :return: A `ShaFile` object, such as a Commit or Blob
         :raise KeyError: when the specified ref or object does not exist
         """
-        if not isinstance(name, bytes):
+        if not isinstance(name.encode('utf-8'), str):
             raise TypeError("'name' must be bytestring, not %.80s" %
                     type(name).__name__)
         if len(name) in (20, 40):
